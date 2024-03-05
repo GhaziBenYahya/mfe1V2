@@ -1,0 +1,49 @@
+<div class="grid-container">
+    <div class="grid-box1">
+
+        <button type="button" class="buttonAdd" (click)="onAddNode()">Ajouter un noeud</button>
+    <!-- Liste d'étapes -->
+<mat-list *ngIf="showTaskList">
+    <mat-list-item
+        cdkDrag
+        cdkDropList
+        cdkDropListConnectedTo="drop-list"
+        *ngFor="let step of steps"
+        [cdkDragData]="step"
+        (cdkDragStarted)="dragStart($event)"
+        (cdkDragMoved)="moved($event)"
+        >
+        {{ step.name }}
+        <div *cdkDragPlaceholder class="field-placeholder"></div>
+      </mat-list-item>
+  </mat-list>
+  
+  <!-- Zone de dépôt pour les étapes -->
+  
+  <fieldset cdkDropList
+  id="drop-list"
+  (cdkDropListDropped)="itemDropped($event)">
+    
+    <mat-expansion-panel *ngFor="let Step of steps" cdkDrag>
+      <!-- Contenu de chaque étape dans le workflow -->
+      {{ steps }}
+    </mat-expansion-panel>
+  </fieldset>
+
+</div> 
+<div class="grid-box2">
+    <div>
+        <button type="button" class="buttonStart">Start</button>
+    </div>
+    <div>
+        <button type="button" class="buttonExit">Exit</button>
+    </div>
+    </div>
+</div>
+    
+    
+    
+      
+      
+      
+      

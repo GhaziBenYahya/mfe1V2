@@ -1,0 +1,38 @@
+
+
+<div class="container">
+    <div class="title-container">
+        <h1 class="page-title">Liste des Workflows</h1>
+      </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom du Workflow</th>
+          <th>Description</th>
+          <th>Responsable</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let workflow of WorkflowDto">
+          <td>{{ workflow.workflowName }}</td>
+          <td>{{ workflow.description }}</td>
+          <td>{{ workflow.responsible }}</td>
+  
+          <td>
+            
+            <button class="edit-button"(click)="nav(workflow.workflowId)" >Modifier</button>
+            <button class="delete-button" (click)="deleteWorkflow(workflow.workflowId)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination">
+      <button *ngFor="let page of getPagesArray()" (click)="setPage(page)" [ngClass]="{ 'active': page === currentPage }">
+        {{ page }}
+      </button>
+    </div>
+  
+  </div>
+  
