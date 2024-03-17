@@ -1,0 +1,57 @@
+
+<div class="grid-box3" >
+
+    <div class="info"  >
+        <label for="description">Informations de la tâche</label><br>
+  
+        <div style="display: flex; ">
+            <div>
+                <input style="margin: 20px;" type="text" id="nom" name="nom" required placeholder="Se connecter au 'Nom du workflow'">
+            </div>
+            <div>
+                <input style="margin: 20px;"  type="text" id="description" name="description" required placeholder="Description">
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div>
+                <input style="margin: 20px; margin-top: 2px;"  type="text" id="responsable" name="responsable" required placeholder="responsable">
+            </div>
+            <div>
+                <input style="margin: 20px; margin-top: 2px;"  type="text" id="url" name="url" required placeholder="URL du résultat">
+            </div>
+        </div>
+        
+    </div>
+    <div >
+        <table>
+            <thead>
+              <tr>
+                <th>Nom de régle</th>
+                <th>Ordre de régle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Régle 1</td>
+                <td>1</td>
+                
+              </tr>
+              <tr>
+                <td>Régle 2</td>
+                <td>2</td>
+                
+              </tr>
+              <tr>
+                <td>Régle 3</td>
+                <td>3</td>
+                
+              </tr>
+            </tbody>
+          </table>
+          
+    </div>
+    <button class="buttonAddRule" (click)="createRule()"><a >Ajouter une régle</a></button>
+    
+  </div>
+  
+

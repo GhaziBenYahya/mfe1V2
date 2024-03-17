@@ -2,20 +2,16 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    height: 100vh;
     background-color: #CDE8ED;
   }
   
   
   .container{
     background-color: white;
-      padding-top: 20px;
-      padding-bottom: 40px;
-      padding-left: 30px;
+      padding-top: 5px;
+      padding-left: 16px;
       padding-right: 16px;
-      margin-right: 33em;
-      margin-left: 33px;
-      margin-top: 20px;
+      margin-top: 5px;
       border-radius: 20px;
   }
   h2 {
@@ -49,7 +45,7 @@ body {
   
   button {
     padding: 10px;
-    background: linear-gradient(90deg, #cdffd8, #94b9ff);
+    background-color:orange ;
     color: black;
     margin-left: 90%;
     border: none;

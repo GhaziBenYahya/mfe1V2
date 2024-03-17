@@ -1,8 +1,9 @@
+
+<div class="flex justify-center items-center h-screen">
+  <div class="container mx-auto">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-500 p-4">
 <div class="container">
-  <div> 
-     
-    <button class="align" ><a (click)="ajoutWorkflow2()" >Continuer</a></button>
-  </div>
+ 
   <form action="/submit" method="post">
     <input type="text" id="nom" name="nom" [(ngModel)]="workflow.workflowName" required placeholder="Se connecter au 'Nom du workflow'">
     <label for="description">Informations</label>
@@ -17,8 +18,13 @@
     
   </form>
   </div> 
-  
-  
+  <div> 
+     
+    <button class="align" ><a (click)="ajoutWorkflow2()" >Continuer</a></button>
+  </div>
+  </div>
+  </div>
+  </div>
   
   
     

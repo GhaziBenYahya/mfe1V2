@@ -10,35 +10,47 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceService } from './service.service';
 import { ListworkflowComponent } from './listworkflow/listworkflow.component';
-import { ManagesComponent } from './manages/manages.component';
 import { EditComponent } from './edit/edit.component';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon'; 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { StepsComponent } from './create-flow/steps/steps.component';
+import { CreateWorkflowComponent } from './create-flow/create-workflow/create-workflow.component';
+import {CreateFlowComponent} from './create-flow/create-flow.component';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [
-    WorkflowComponent,
-    OrderComponent,
-    AddworkflowComponent,
-    ListworkflowComponent,
-    ManagesComponent,
-    EditComponent,
-    
-  ],
-  imports: [
-    CommonModule,
-    OrderRoutingModule,
-    MatListModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatExpansionModule,
-    MatIconModule,
-    DragDropModule,
-    
-  ],
-  providers: [ServiceService], // Ajoutez votre service aux fournisseurs
+    declarations: [
+        OrderComponent,
+        HeaderComponent,
+        SidebarComponent
+      ],
+    imports: [
+        CommonModule,
+        OrderRoutingModule,
+        MatListModule,
+        CreateFlowComponent,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatExpansionModule,
+        MatIconModule,
+        DragDropModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatOptionModule,
+        StepsComponent,
+        CreateWorkflowComponent,
+        WorkflowComponent,
+        AddworkflowComponent,
+        ListworkflowComponent,
+        EditComponent
+    ],
+    providers: [ServiceService], // Ajoutez votre service aux fournisseurs
 })
 export class OrderModule { }

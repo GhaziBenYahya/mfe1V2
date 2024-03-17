@@ -6,12 +6,14 @@ import Swal from 'sweetalert2';
 import { WorkflowDto } from '../models/workflow-dto';
 
 import { ActivatedRoute, RouterStateSnapshot } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-edit',
-
-  templateUrl: './edit.component.html',
-  styleUrl: './edit.component.css'
+    selector: 'app-edit',
+    templateUrl: './edit.component.html',
+    styleUrl: './edit.component.css',
+    standalone: true,
+    imports: [FormsModule]
 })
 export class EditComponent implements OnInit{
 

@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .button-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  
+  .button-green { background-color: green; }
+  .button-pink { background-color: pink; }
+  .button-blue { background-color: blue; }
+  .button-purple { background-color: purple; }
+  .button-red { background-color: red; }
+  
+  .button-container button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

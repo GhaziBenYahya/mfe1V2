@@ -5,16 +5,18 @@ import { ServiceService } from '../service.service';
 import Swal from 'sweetalert2';
 import { WorkflowDto } from '../models/workflow-dto';
 import {  ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { NgFor, NgClass } from '@angular/common';
 
 
 
 
 
 @Component({
-  selector: 'app-listworkflow',
-
-  templateUrl: './listworkflow.component.html',
-  styleUrl: './listworkflow.component.css'
+    selector: 'app-listworkflow',
+    templateUrl: './listworkflow.component.html',
+    styleUrl: './listworkflow.component.css',
+    standalone: true,
+    imports: [NgFor, NgClass]
 })
 export class ListworkflowComponent implements OnInit{
   

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 @Component({
-  selector: 'app-workflow',
-  
-  
-  templateUrl: './workflow.component.html',
-  styleUrl: './workflow.component.css'
+    selector: 'app-workflow',
+    templateUrl: './workflow.component.html',
+    styleUrl: './workflow.component.css',
+    standalone: true
 })
 export class WorkflowComponent {
   

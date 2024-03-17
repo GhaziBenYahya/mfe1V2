@@ -4,13 +4,15 @@ import { OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import Swal from 'sweetalert2';
 import { WorkflowDto } from '../models/workflow-dto';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-addworkflow',
-
-  templateUrl: './addworkflow.component.html',
-  styleUrl: './addworkflow.component.css'
+    selector: 'app-addworkflow',
+    templateUrl: './addworkflow.component.html',
+    styleUrl: './addworkflow.component.css',
+    standalone: true,
+    imports: [FormsModule]
 })
 export class AddworkflowComponent implements OnInit{
 
@@ -40,7 +42,7 @@ export class AddworkflowComponent implements OnInit{
         (result) => { // success
           console.log(result);
 
-          this.router.navigate(['/mfe1/orderComponent/managesComponent']);
+           this.router.navigate(['/mfe1/orderComponent/create-flowComponent']);
           Swal.fire('Valider', '', 'success');
           
         },

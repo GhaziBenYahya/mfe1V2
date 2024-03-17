@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WorkflowDto } from './models/workflow-dto';
+import { RuleDto } from './models/rule-dto';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +14,10 @@ export class ServiceService {
 
 
 
+  addRule (rule:RuleDto){
+    return this.http.post(this.url,rule) 
+   }
+   
   addWorkflow (workflow:WorkflowDto){
     return this.http.post(this.url,workflow) 
    }
