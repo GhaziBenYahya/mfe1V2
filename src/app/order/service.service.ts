@@ -10,13 +10,10 @@ export class ServiceService {
 
   constructor(private http : HttpClient) { }
   url='http://localhost:7080/api/v1/workflows'
+  
+// Service Workflow
 
 
-
-
-  addRule (rule:RuleDto){
-    return this.http.post(this.url,rule) 
-   }
    
   addWorkflow (workflow:WorkflowDto){
     return this.http.post(this.url,workflow) 
@@ -41,6 +38,37 @@ export class ServiceService {
 
    getWorkflowById(workflowId:any){
     return this.http.get(this.url+'/'+workflowId)
+  }
+
+
+  //service Rule 
+  url1='http://localhost:7080/api/v1'
+
+  
+
+
+  addRule (rule:RuleDto){
+    return this.http.post(this.url1,rule) 
+   }
+
+  getRuls(stepEntry: any){
+    return this.http.get(this.url1+'/rules/stepEntry/'+stepEntry)
+  
+   }
+
+   removeRule (ruleId: any ){
+    return this.http.delete(this.url1+'/rules/'+ruleId)
+  }
+
+
+
+  editRule(rule:RuleDto , ruleId:any ){
+    return this.http.put(this.url1+'/'+ruleId,rule) 
+   }
+
+
+   getRuleById(ruleId:any){
+    return this.http.get(this.url1+'/'+ruleId)
   }
 
 }

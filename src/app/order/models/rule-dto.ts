@@ -1,6 +1,8 @@
 export class RuleDto {
     ruleId :any
-    name: string = '';
+    ruleName: string = '';
     description: string = '';
-    idStepEntry: any;
+    formula: string = '';
+    stepEntryId: any;
+    creationDate: any;
   }

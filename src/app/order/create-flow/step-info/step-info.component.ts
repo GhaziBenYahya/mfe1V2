@@ -1,7 +1,16 @@
 import { Component } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { Router } from '@angular/router';
 import { CreateFlowComponent } from '../create-flow.component';
+import { Router } from '@angular/router';
+import { OnInit } from '@angular/core';
+
+import Swal from 'sweetalert2';
+import {  ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { NgFor, NgClass } from '@angular/common';
+import { ServiceService } from '../../service.service';
+import { RuleDto } from '../../models/rule-dto';
+
+
 
 @Component({
   selector: 'app-step-info',
@@ -10,43 +19,67 @@ import { CreateFlowComponent } from '../create-flow.component';
   templateUrl: './step-info.component.html',
   styleUrl: './step-info.component.css'
 })
-export class StepInfoComponent {
-  constructor(
-    private dialog: MatDialog,
-    private router: Router
-  ) { }
+export class StepInfoComponent implements OnInit{
+  RuleDto: RuleDto[] = [];
+  constructor(private srv: ServiceService , private router: Router) {}
+  ngOnInit(): void {
+    console.log("hhhh")
+    let  stepEntryId = 2;
+    this.srv.getRuls(stepEntryId).subscribe((res: any) => {
+
+      console.log(res)
+      this.RuleDto = res
+    })
+  }
 
 
 
 createRule() :void {
-      // this.dialog.open(AddRuleComponent, {
-      // })
+
       this.router.navigate(['/mfe-rule'])
     }
-  // public PopUp: any;
-
-  // async createRule() {
-  //   // Import the component dynamically if needed (assuming it's not part of this module)
-  //   const module = await import ('../create-flow.component'); // Replace with the correct path
-  //   this.PopUp = module.CreateFlowComponent;
-
-  //   // Define the custom element (only if necessary)
-  //   if (!customElements.get('PopUpComponent')) {
-  //     customElements.define('PopUpComponent',  this.PopUp);
-  //   }
-
-  //   // Create a popup element instance
-  //   const popupElement = document.createElement('PopUpComponent');
-
-  //   // Append the popup element to a container (consider using a specific container instead of body)
-  //   const container = document.getElementById('popup-container'); // Assuming you have a container element
-  //   if (container) {
-  //     container.appendChild(popupElement);
-  //   } else {
-  //     console.error('Popup container element not found');
-  //   }
-  // }
+ 
 
 
+
+    deleteWorkflow(ruleId: any) {
+      // Afficher un message d'alerte de confirmation avant la suppression
+      Swal.fire({
+        title: 'Êtes-vous sûr?',
+        text: 'Cette action est irréversible et supprimera la régle.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui, supprimer!',
+        cancelButtonText: 'Annuler'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // L'utilisateur a cliqué sur "Oui, supprimer"
+          this.srv.removeRule(ruleId)
+            .subscribe(
+              (result) => { // succès
+                console.log(result);
+                Swal.fire('Workflow supprimé avec succès', '', 'success');
+                window.location.reload();
+              },
+              (err) => {
+                // traitement du cas d'erreur
+                console.log(err);
+                Swal.fire('Workflow supprimé avec succès', '', 'success');
+                window.location.reload();
+              }
+            );
+        } else {
+          // L'utilisateur a cliqué sur "Annuler" ou a cliqué en dehors de la boîte de dialogue
+          Swal.fire('Suppression annulée', '', 'info');
+        }
+      });
+    }
+    
+    
+    
+    
+    editWorkflow(id: number): void {
+      console.log(`Modification du workflow avec l'ID ${id}`);
+    }
 
 }

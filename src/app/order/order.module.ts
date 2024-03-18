@@ -24,6 +24,7 @@ import {CreateFlowComponent} from './create-flow/create-flow.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+
 @NgModule({
     declarations: [
         OrderComponent,
@@ -49,7 +50,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
         WorkflowComponent,
         AddworkflowComponent,
         ListworkflowComponent,
-        EditComponent
+        EditComponent,
+        
     ],
     providers: [ServiceService], // Ajoutez votre service aux fournisseurs
 })
